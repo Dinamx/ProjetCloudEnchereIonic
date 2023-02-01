@@ -1,10 +1,33 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { IonContent, IonInput, IonItem, IonLabel, IonButton, IonButtons, IonMenuButton, IonSplitPane, IonTitle, IonToolbar, IonRow } from '@ionic/react';
 import Menu from '../components/Menu';
 import { baseUrl } from '../data/webService';
 import axios from 'axios';
 
 const AddAuction: React.FC = () => {
+
+    const fileInput = useRef(null);
+    const onFileChange = (event: any) => {
+        console.log('onfileChange');
+        const file = event.target.files[0];
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            console.log("photo en base 64");
+            console.log(e.target?.result);
+            if (typeof e.target?.result === 'string') {
+                // Mettez à jour la valeur de imageBase64 dans l'état de votre composant avec le résultat de la conversion
+                // setImageBase64(e.target.result);
+                console.log('ok');
+                console.log(e.target.result);
+                setPhoto(e.target.result);
+
+            }
+        };
+
+        reader.readAsDataURL(file);
+
+    };
+
     const [price, setPrice] = useState(0.0);
     const [auctionDescription, setAuctionDescription] = useState("");
     const [userId, setUserId] = useState(2);
@@ -23,6 +46,7 @@ const AddAuction: React.FC = () => {
         try {
             // const history = useHistory();
             const idutilisateur = localStorage.getItem('iduser');
+
 
             const durationInMinutes = duration.hours * 60 + duration.minutes;
             const data = {
@@ -98,8 +122,26 @@ const AddAuction: React.FC = () => {
                             <IonInput type="number" value={categoryId} onIonChange={e => setCategoryId(parseInt(e.detail.value!, 10))} />
                         </IonItem>
                         <IonItem>
-                            <IonLabel position="floating">Photo</IonLabel>
-                            <IonInput value={photo} onIonChange={e => setPhoto(e.detail.value!)} />
+                            <IonLabel position="floating">telecharger une photo</IonLabel>
+                            <>
+                                <input
+                                    ref={fileInput}
+                                    hidden
+                                    type="file"
+                                    accept="image/*"
+                                    onChange={onFileChange}
+                                    onClick={() => {
+                                    }}
+                                />
+                                <IonInput
+                                    color="primary"
+                                    onClick={() => {
+                                        // @ts-ignore
+                                        fileInput?.current?.click();
+                                        // setBackgroundOption(BackgroundOptionType.Gradient);
+                                    }}>
+                                </IonInput>
+                            </>
                         </IonItem>
                         <IonItem>
                             <IonLabel position="floating">Nom du produit</IonLabel>
