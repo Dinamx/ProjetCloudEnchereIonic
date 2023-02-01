@@ -60,9 +60,6 @@ const AuctionDetail: React.FC<IdAuction> = ({ match }) => {
         const date = new Date(Date.parse(dateStr));
         return date.toLocaleString();
     };
-
-
-    const [detailsEnchereDetailEnchere, setDetailsEnchereDetailEnchere] = useState<Array<any>>([]);
     return (
         <IonPage id="main" >
             <IonHeader>
