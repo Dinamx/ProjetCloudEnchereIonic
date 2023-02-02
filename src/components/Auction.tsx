@@ -59,43 +59,37 @@ const Auction: React.FC = () => {
 
         <IonGrid fixed>
             <IonRow>
-                <IonCol size="12" size-md="6" >
-                    {detailAuction.map(result => {
-                        return (
-                            <IonCard key={result.idenchere} className="speaker-card">
-                                <IonCardHeader>
-                                    <IonItem button detail={false} lines="none" className="speaker-item" >
-                                        <IonAvatar slot="start">
+                {detailAuction.map(result => {
+                    return (
+                        <IonCard key={result.idenchere} style={{ marginBottom: "20px" }}>
+                            <IonCardHeader>
+                                <IonItem button detail={false} lines="none" className="speaker-item" >
+                                    {/* <IonAvatar slot="start" style={{ width: "50px", height: "50px" }}>
                                             <img src={result.photo} alt="Speaker profile pic" />
-                                        </IonAvatar>
-                                        <IonLabel>
-                                            <h2>{result.nomproduit}</h2>
-                                            <p>{result.prixminimumvente}</p>
-                                        </IonLabel>
-                                    </IonItem>
-                                </IonCardHeader>
-                                <IonCardContent>
-                                    <IonItem detail={false} >
-                                        <IonLabel>
-                                            <h6 style={{ marginRight: "right" }}>
-                                                {/* <Countdown date={new Date("YYYY-MM-DDTHH:mm:ss")} /> */}
-                                                <Countdown date={result.datefin} />
-                                            </h6>
-                                        </IonLabel>
-                                        <IonLabel>
+                                        </IonAvatar> */}
+                                    <IonAvatar slot="start" style={{ maxWidth: "100%", height: "auto" }}>
+                                        <img src={result.photo} alt="Speaker profile pic" />
+                                    </IonAvatar>
+                                    <IonLabel>
+                                        <h2 style={{ fontWeight: "bold" }}>{result.nomproduit}</h2>
+                                        <p style={{ fontSize: "14px" }}>{result.prixminimumvente}</p>
+                                    </IonLabel>
+                                </IonItem>
+                            </IonCardHeader>
+                            <IonCardContent>
+                                <IonItem detail={false} >
+                                    <IonLabel>
+                                        <h6 style={{ marginRight: "right", fontSize: "14px" }}>
+                                            <Countdown date={result.datefin} />
+                                        </h6>
+                                    </IonLabel>
+                                    <IonButton onClick={() => { history.push('/auctionDetail/' + result.idenchere) }} style={{ marginLeft: "auto" }}>SeeMore</IonButton>
+                                </IonItem>
+                            </IonCardContent>
+                        </IonCard>
+                    )
+                })}
 
-                                        </IonLabel>
-
-                                        {/* <IonLabel> */}
-                                        <IonButton onClick={() => { history.push('/auctionDetail/' + result.idenchere) }}>SeeMore</IonButton>
-                                        {/* <h3>About Blabla</h3> */}
-                                        {/* </IonLabel> */}
-                                    </IonItem>
-                                </IonCardContent>
-                            </IonCard>
-                        )
-                    })}
-                </IonCol>
             </IonRow>
         </IonGrid>
     );

@@ -61,14 +61,15 @@ const AuctionDetail: React.FC<IdAuction> = ({ match }) => {
         return date.toLocaleString();
     };
     return (
-        <IonPage id="main" >
-            <IonHeader>
-                <IonToolbar>
+        <IonPage  >
+            <IonHeader >
+                <IonToolbar >
                     <IonTitle>
                         <img src="path/to/header/photo.jpg" alt="Header Photo" />
                     </IonTitle>
-                    <IonButtons slot="start">
+                    <IonButtons id="main" slot="start">
                         <IonBackButton defaultHref="/home" />
+                        {/* <IonItem detail={false} routerLink="/home" routerDirection="none" className={location.pathname.startsWith("/home") ? 'selected' : undefined}></IonItem> */}
                     </IonButtons>
                 </IonToolbar>
             </IonHeader>
@@ -99,7 +100,7 @@ const AuctionDetail: React.FC<IdAuction> = ({ match }) => {
                 </IonList>
 
             </IonContent>
-        </IonPage>
+        </IonPage >
     )
 };
 
