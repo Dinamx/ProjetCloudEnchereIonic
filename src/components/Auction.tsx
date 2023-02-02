@@ -67,6 +67,7 @@ const Auction: React.FC = () => {
                                     {/* <IonAvatar slot="start" style={{ width: "50px", height: "50px" }}>
                                             <img src={result.photo} alt="Speaker profile pic" />
                                         </IonAvatar> */}
+
                                     <IonAvatar slot="start" style={{ maxWidth: "100%", height: "auto" }}>
                                         <img src={result.photo} alt="Speaker profile pic" />
                                     </IonAvatar>

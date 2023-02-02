@@ -61,8 +61,8 @@ const Notif: React.FC = () => {
         <IonGrid fixed >
             {notifications.map(result => {
                 return (
-                    // Asina ny tena gestion ana couleur kely mba micharme e
-                    <IonRow style={{ backgroundColor: result.lu === true ? 'white' : 'lightgrey', padding: "1em", borderRadius: "5px" }} onClick={() => handleClick(result.id)}>
+                    <IonRow style={{ backgroundColor: result.lu === true ? 'white' : 'lightgrey', padding: "1em", borderRadius: "5px" }}
+                        onClick={result.lu === true ? undefined : () => handleClick(result.id)}>
                         <IonCol size="12" size-md="6" style={{ cursor: "pointer" }}>
                             <span>
                                 Fin de la vente de : {result.idenchere.description}
@@ -74,8 +74,9 @@ const Notif: React.FC = () => {
                             </span>
                         </IonCol>
                     </IonRow>
-                )
+                );
             })}
+
 
         </IonGrid>
     );
