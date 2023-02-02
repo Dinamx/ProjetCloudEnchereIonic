@@ -27,7 +27,6 @@ interface detailSurenchere {
     montantOffre: String,
     dateheuremise: Date
 }
-
 interface IdAuction
     extends RouteComponentProps<{
         idAuction: string;
@@ -43,7 +42,11 @@ const AuctionDetail: React.FC<IdAuction> = ({ match }) => {
             try {
                 const response = await axios.get(url + '/surenchere/' + match.params.idAuction);
                 setDetailsSurenchere(response.data);
+
                 console.log(response.data);
+
+
+
 
             } catch (error) {
                 console.error(error);

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-interface Props {}
+interface Props { }
 
 const ComponentName: React.FC<Props> = () => {
   const [photos, setPhotos] = useState<string[]>([]);
@@ -14,16 +14,18 @@ const ComponentName: React.FC<Props> = () => {
 
   return (
     <div>
-      <form>
-        {photos.map((photo, index) => (
-          <input key={index} type="text" value={photo} />
-        ))}
-        <input key={inputKey} type="text" onChange={addPhoto} />
-        <button type="button" onClick={addPhoto}>
-          Add another photo
-        </button>
-      </form>
-    </div>
+    <form>
+    {
+      photos.map((photo, index) => (
+        <input key= { index } type = "text" value = { photo } />
+        ))
+    }
+    < input key = { inputKey } type = "text" onChange = { addPhoto } />
+      <button type="button" onClick = { addPhoto } >
+        Add another photo
+          < /button>
+          < /form>
+          < /div>
   );
 };
 

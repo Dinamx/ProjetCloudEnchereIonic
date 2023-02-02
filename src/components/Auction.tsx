@@ -39,6 +39,8 @@ const Auction: React.FC = () => {
     const [detailAuction, setDetailAuction] = useState<Array<detailsenchere>>([]);
     const history = useHistory();
 
+
+
     const url = baseUrl();
 
     useEffect(() => {
@@ -46,6 +48,7 @@ const Auction: React.FC = () => {
             try {
                 const response = await axios.get(url + '/encheres/' + 2);
                 setDetailAuction(response.data);
+
                 console.log(response.data);
             } catch (error) {
                 alert(error);
@@ -55,6 +58,7 @@ const Auction: React.FC = () => {
 
         fetchData();
     }, []);
+    const taille = detailAuction.length;
     return (
 
         <IonGrid fixed>
