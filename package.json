@@ -24,6 +24,8 @@
     "axios": "^1.2.2",
     "history": "^4.9.0",
     "ionicons": "^6.0.3",
+    "plugin.js": "^0.0.6",
+    "push.js": "^1.0.12",
     "react": "^18.2.0",
     "react-countdown-now": "^2.1.2",
     "react-dom": "^18.2.0",

@@ -7,6 +7,8 @@ import {
   IonTitle,
   IonToolbar
 } from '@ionic/react';
+import Push from '@capacitor/core';
+// import Push from 'push.js';
 import Menu from '../components/Menu';
 import Auction from '../components/Auction';
 import { useEffect } from 'react';
@@ -21,6 +23,17 @@ const Home: React.FC = () => {
   //   checkAuth();
   // }, []);
 
+  const testPush = async () => {
+    try {
+      console.log('bonjour');
+      // Push.create("Hello World");
+      // Push.clear();
+    } catch (error) {
+      alert(error);
+      console.error(error);
+    }
+  };
+
 
   return (
     <IonSplitPane when="xl" contentId="main">
@@ -34,7 +47,11 @@ const Home: React.FC = () => {
           <IonTitle>Main Page</IonTitle>
         </IonToolbar>
         <IonContent className="ion-padding">
+          <IonButtons onClick={testPush}>
+            Bonjour
+          </IonButtons>
           <Auction></Auction>
+
         </IonContent>
       </div>
     </IonSplitPane>

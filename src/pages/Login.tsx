@@ -67,14 +67,14 @@ const Login: React.FC = () => {
         if (username && password) {
             try {
 
-                axios
-                    .post(url + '/users/signin', log)
-                    .then(res => {
-                        localStorage.setItem('iduser', res.data.idutilisateur.id);
-                        localStorage.setItem('token', res.data.token);
-                        history.push('/home');
-                    })
-                    .catch(error => alert(error));
+                // axios
+                //     .post(url + '/users/signin', log)
+                //     .then(res => {
+                //         localStorage.setItem('iduser', res.data.idutilisateur.id);
+                //         localStorage.setItem('token', res.data.token);
+                history.push('/home');
+                // })
+                // .catch(error => alert(error));
                 // .catch(error => console.log(error));
 
                 // history.push('/home', { direction: 'none' });
